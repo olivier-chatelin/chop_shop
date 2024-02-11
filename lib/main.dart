@@ -16,10 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Chop shop',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.greenAccent,
-            brightness: Brightness.light,
-        ),
+      primarySwatch: Colors.lightBlue,
         textTheme: TextTheme(
           displayLarge: const TextStyle(
             fontSize: 72,
@@ -29,12 +26,12 @@ class MyApp extends StatelessWidget {
             fontSize: 30,
             fontStyle: FontStyle.italic,
           ),
-          bodyMedium: GoogleFonts.merriweather(),
+          bodyMedium: GoogleFonts.roboto(),
           displaySmall: GoogleFonts.pacifico(),
         ),
         useMaterial3: true,
       ),
-      home: const Home(),
+      home: Home(),
     );
   }
 }
