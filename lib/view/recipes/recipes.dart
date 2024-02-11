@@ -19,17 +19,24 @@ class _HomeState extends State<Home> {
   }
   void plan (int index) {
      setState(() {
-       widget.recipes[index].isPlanned = ! widget.recipes[index].isPlanned;
+       widget.recipes[index].isInPlanningBag = ! widget.recipes[index].isInPlanningBag;
      });
-     print(widget.recipes[index]);
+     // print(widget.recipes[index]);
+  }
+
+  void seeDetails (int index) {
+    // print('see details for ${widget.recipes[index].name}');
+  }
+
+  void addRecipe() {
+    // print('add recipe');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mes recettes', style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.green,
+        title: const Text('Mes recettes'),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
@@ -37,21 +44,16 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(label: 'Meal Planner', icon: Icon(Icons.calendar_month) ),
           BottomNavigationBarItem(label: 'Liste de courses', icon: Icon(Icons.shopping_cart) ),
         ],
-        backgroundColor: Colors.green,
-        selectedItemColor: Colors.white,
         iconSize: 30,
         currentIndex: 0,
       ),
       body: ListView.builder(
-          itemBuilder: (context, index) => RecipeCard(recipe: widget.recipes[index], plan: plan, index: index,),
+          itemBuilder: (context, index) => RecipeCard(recipe: widget.recipes[index], plan: plan, index: index, seeDetails: seeDetails),
           itemCount: widget.recipes.length,
-          // separatorBuilder: (BuildContext context, int index) {  },
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.green,
-        shape: const CircleBorder(),
         onPressed: ()=>print('add recipe'),
-        child: const Icon(Icons.add, color: Colors.white,),
+        child: const Icon(Icons.add),
       ),
 
 

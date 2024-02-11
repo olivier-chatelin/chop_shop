@@ -1,3 +1,4 @@
+import 'package:chop_shop/desing/widgets/chop_badge.dart';
 import 'package:chop_shop/model/recipe.model.dart';
 import 'package:flutter/material.dart';
 
@@ -5,13 +6,13 @@ class RecipeCard extends StatelessWidget {
   final Recipe recipe;
   final Function plan;
   final int index;
-  const RecipeCard({super.key, required this.recipe, required this.plan, required this.index});
+  final Function seeDetails;
+  const RecipeCard({super.key, required this.recipe, required this.plan, required this.index, required this.seeDetails});
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        elevation: 5,
         child:  SizedBox(
           height: 200,
           child: Stack(
@@ -21,7 +22,7 @@ class RecipeCard extends StatelessWidget {
                   image:  AssetImage(recipe.image ?? 'assets/images/placeholder.png'),
                   fit: BoxFit.cover,
                   child: InkWell(
-                    onTap: () => print('tap'),
+                    onTap: () => seeDetails(index),
                   ),
                 ),
               Container(
@@ -36,7 +37,7 @@ class RecipeCard extends StatelessWidget {
                           margin: const EdgeInsets.all(5),
                           child:  IconButton(
                             // icon: recipe.isPlanned ? Icons.event_busy :  Icons.edit_calendar,
-                            icon: Icon(recipe.isPlanned ? Icons.event_busy :  Icons.edit_calendar, color: Colors.white, size: 40),
+                            icon: Icon(recipe.isInPlanningBag ? Icons.event_busy :  Icons.edit_calendar, color: Colors.white, size: 40),
                             onPressed: () => plan(index),
                           ),
                         ),
@@ -45,19 +46,10 @@ class RecipeCard extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                          margin: const EdgeInsets.all(5),
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.white
-                          ),
-                          child: Text(
-                            recipe.name,
-                            style: const TextStyle(
-                                fontSize: 15
-                            ),
-                          ),
-                        ),
+                          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                            child: ChopBadge(text: recipe.name)
+
+                        )
                       ]
                     ),
 
