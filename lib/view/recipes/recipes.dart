@@ -18,10 +18,10 @@ class _HomeState extends State<Home> {
 
   }
   void plan (int index) {
-     print(index);
      setState(() {
        widget.recipes[index].isPlanned = ! widget.recipes[index].isPlanned;
      });
+     print(widget.recipes[index]);
   }
 
   @override
@@ -46,7 +46,13 @@ class _HomeState extends State<Home> {
           itemBuilder: (context, index) => RecipeCard(recipe: widget.recipes[index], plan: plan, index: index,),
           itemCount: widget.recipes.length,
           // separatorBuilder: (BuildContext context, int index) {  },
-      )
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
+        shape: const CircleBorder(),
+        onPressed: ()=>print('add recipe'),
+        child: const Icon(Icons.add, color: Colors.white,),
+      ),
 
 
     );

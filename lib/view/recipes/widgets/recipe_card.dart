@@ -22,7 +22,6 @@ class RecipeCard extends StatelessWidget {
                   fit: BoxFit.cover,
                   child: InkWell(
                     onTap: () => print('tap'),
-                    onLongPress: ()=> plan(index),
                   ),
                 ),
               Container(
@@ -35,8 +34,12 @@ class RecipeCard extends StatelessWidget {
                       children: [
                         Container(
                           margin: const EdgeInsets.all(5),
-                          child:  Icon(recipe.isPlanned ? Icons.edit_calendar :  Icons.event_busy, color: Colors.white,size: 40),
-                        )
+                          child:  IconButton(
+                            // icon: recipe.isPlanned ? Icons.event_busy :  Icons.edit_calendar,
+                            icon: Icon(recipe.isPlanned ? Icons.event_busy :  Icons.edit_calendar, color: Colors.white, size: 40),
+                            onPressed: () => plan(index),
+                          ),
+                        ),
                       ],
                     ),
                     Row(
