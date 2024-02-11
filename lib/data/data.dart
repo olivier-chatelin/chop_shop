@@ -1,4 +1,4 @@
-import '../model/recipe.model.dart';
+import '../model/recipe_model.dart';
 
 List<Recipe> recipes = [
   Recipe(

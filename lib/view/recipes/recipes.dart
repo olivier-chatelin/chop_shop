@@ -1,5 +1,6 @@
+import 'package:chop_shop/design/widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
-import '../../model/recipe.model.dart';
+import '../../model/recipe_model.dart';
 import 'widgets/recipe_card.dart';
 import '../../data/data.dart' as data;
 class Home extends StatefulWidget {
@@ -21,15 +22,12 @@ class _HomeState extends State<Home> {
      setState(() {
        widget.recipes[index].isInPlanningBag = ! widget.recipes[index].isInPlanningBag;
      });
-     // print(widget.recipes[index]);
+     print(widget.recipes[index]);
   }
 
-  void seeDetails (int index) {
-    // print('see details for ${widget.recipes[index].name}');
-  }
 
   void addRecipe() {
-    // print('add recipe');
+    print('add recipe');
   }
 
   @override
@@ -38,17 +36,9 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: const Text('Mes recettes'),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(label: 'Mes recettes' , icon:  Icon(Icons.ramen_dining ) ),
-          BottomNavigationBarItem(label: 'Meal Planner', icon: Icon(Icons.calendar_month) ),
-          BottomNavigationBarItem(label: 'Liste de courses', icon: Icon(Icons.shopping_cart) ),
-        ],
-        iconSize: 30,
-        currentIndex: 0,
-      ),
+      bottomNavigationBar: const BottomNavigation(currentIndex: 0),
       body: ListView.builder(
-          itemBuilder: (context, index) => RecipeCard(recipe: widget.recipes[index], plan: plan, index: index, seeDetails: seeDetails),
+          itemBuilder: (context, index) => RecipeCard(recipe: widget.recipes[index], plan: plan, index: index),
           itemCount: widget.recipes.length,
       ),
       floatingActionButton: FloatingActionButton(

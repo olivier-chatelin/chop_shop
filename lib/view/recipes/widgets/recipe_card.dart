@@ -1,13 +1,13 @@
-import 'package:chop_shop/desing/widgets/chop_badge.dart';
-import 'package:chop_shop/model/recipe.model.dart';
+import 'package:chop_shop/design/widgets/chop_badge.dart';
+import 'package:chop_shop/model/recipe_model.dart';
 import 'package:flutter/material.dart';
+
 
 class RecipeCard extends StatelessWidget {
   final Recipe recipe;
   final Function plan;
   final int index;
-  final Function seeDetails;
-  const RecipeCard({super.key, required this.recipe, required this.plan, required this.index, required this.seeDetails});
+  const RecipeCard({super.key, required this.recipe, required this.plan, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,9 @@ class RecipeCard extends StatelessWidget {
                   image:  AssetImage(recipe.image ?? 'assets/images/placeholder.png'),
                   fit: BoxFit.cover,
                   child: InkWell(
-                    onTap: () => seeDetails(index),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/recipe_detail', arguments: recipe);
+                    },
                   ),
                 ),
               Container(
