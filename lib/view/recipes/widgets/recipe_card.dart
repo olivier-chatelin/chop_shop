@@ -1,14 +1,15 @@
 import 'package:chop_shop/design/chop_colors/chop_colors.dart';
+import 'package:chop_shop/providers/RecipeProvider.dart';
 import 'package:chop_shop/view/commons/widgets/chop_badge.dart';
 import 'package:chop_shop/model/recipe_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 
 class RecipeCard extends StatelessWidget {
   final Recipe recipe;
-  final Function plan;
   final int index;
-  const RecipeCard({super.key, required this.recipe, required this.plan, required this.index});
+  const RecipeCard({super.key, required this.recipe,  required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,8 @@ class RecipeCard extends StatelessWidget {
                                 size: 40,
                                 fill: 1,
                             ),
-                            onPressed: () => plan(index),
+                            onPressed: () => Provider.of<RecipeProvider>(context, listen: false).plan(recipe)
+                            ,
                           ),
                         ),
                       ],
