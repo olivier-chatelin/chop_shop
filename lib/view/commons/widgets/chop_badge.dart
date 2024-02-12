@@ -10,7 +10,7 @@ class ChopBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Container(
       padding: const EdgeInsets.symmetric(horizontal: 10),
-      height: 40,
+      height: 30,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: ChopColors.white,
@@ -25,7 +25,7 @@ class ChopBadge extends StatelessWidget {
             Text(
               text,
               style: const TextStyle(
-                  fontSize: 15
+                  fontSize: 15,
               ),
             ),
           ]

@@ -41,9 +41,14 @@ class _HomeState extends State<Home> {
         automaticallyImplyLeading: false,
       ),
       bottomNavigationBar: const BottomNavigation(currentIndex: 0),
-      body: ListView.builder(
-          itemBuilder: (context, index) => RecipeCard(recipe: recipes[index], index: index),
-          itemCount: recipes.length,
+      body: Container(
+        padding: const EdgeInsets.all(10),
+        child: GridView(
+        scrollDirection: Axis.vertical,
+        gridDelegate:
+        const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        children: recipes.map((recipe) => RecipeCard(recipe: recipe)).toList() ,
+        )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: addRecipe,

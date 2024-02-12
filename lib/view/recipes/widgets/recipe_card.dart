@@ -8,8 +8,7 @@ import 'package:provider/provider.dart';
 
 class RecipeCard extends StatelessWidget {
   final Recipe recipe;
-  final int index;
-  const RecipeCard({super.key, required this.recipe,  required this.index});
+  const RecipeCard({super.key, required this.recipe, });
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +19,15 @@ class RecipeCard extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              Ink.image(
+               Ink.image(
                   image:  AssetImage(recipe.image ?? 'assets/images/placeholder.png'),
                   fit: BoxFit.cover,
                   child: InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, '/recipe_detail', arguments: recipe);
-                    },
-                  ),
+                    Navigator.pushNamed(context, '/recipe_detail', arguments: recipe);
+                  },
                 ),
+              ),
               Container(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -54,21 +53,24 @@ class RecipeCard extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                            child: ChopBadge(text: recipe.name)
-
+                        Flexible(
+                          child: FittedBox(
+                            child: Container(
+                              margin: const EdgeInsets.all(5),
+                                child: ChopBadge(text: recipe.name)
+                            
+                            ),
+                          ),
                         )
                       ]
                     ),
-
                   ],
                 ),
               )
             ],
           ),
         )
-        ),
-      );
+      ),
+    );
   }
 }
