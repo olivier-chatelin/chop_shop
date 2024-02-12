@@ -5,13 +5,13 @@ List<Recipe> recipes = [
       id: 'r1',
       name: 'Spaghetti à la carbonara',
       image: 'assets/images/carbonara.jpeg',
-      isPlanned: true,
+      isInPlanningBag: true,
   ),
   Recipe(
       id: 'r8',
       name: 'Nasi goreng',
       image: 'assets/images/nasi_goreng.jpeg',
-      isPlanned: true,
+      isInPlanningBag: true,
   ),
   Recipe(
       id: 'r2',

@@ -14,7 +14,6 @@ final ThemeData mainTheme = ThemeData(
     titleLarge: GoogleFonts.permanentMarker(
       fontSize: 30,
       color: ChopColors.selectedColor
-      // fontStyle: FontStyle.italic,
     ),
     bodyMedium: GoogleFonts.roboto(),
   ),
@@ -26,6 +25,11 @@ final ThemeData mainTheme = ThemeData(
   ),
   appBarTheme: const AppBarTheme(
     backgroundColor: ChopColors.primaryColor,
+    titleTextStyle: TextStyle(
+      fontSize: 25,
+      color: ChopColors.selectedColor,
+      fontWeight: FontWeight.bold
+    ),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: ChopColors.primaryColor,

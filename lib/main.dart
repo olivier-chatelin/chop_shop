@@ -1,8 +1,8 @@
 import 'package:chop_shop/design/themes/main_theme.dart';
-import 'package:chop_shop/view/grocery/widgets/grocery.dart';
-import 'package:chop_shop/view/planner/widgets/planner.dart';
-import 'package:chop_shop/view/recipe_detail/recipe_detail.dart';
-import 'package:chop_shop/view/recipes/recipes.dart';
+import 'package:chop_shop/view/grocery/widgets/grocery_view.dart';
+import 'package:chop_shop/view/planner/widgets/planner_view.dart';
+import 'package:chop_shop/view/recipe_detail/recipe_detail_view.dart';
+import 'package:chop_shop/view/recipes/recipes_view.dart';
 import 'package:flutter/material.dart';
 
 import 'model/recipe_model.dart';

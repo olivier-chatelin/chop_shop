@@ -1,4 +1,4 @@
-import 'package:chop_shop/design/widgets/bottom_navigation.dart';
+import 'package:chop_shop/view/commons/widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import '../../model/recipe_model.dart';
 import 'widgets/recipe_card.dart';
@@ -6,7 +6,7 @@ import '../../data/data.dart' as data;
 class Home extends StatefulWidget {
   Home({super.key});
   late List<Recipe> recipes;
-
+  static const routeName = '/';
   @override
   State<Home> createState() => _HomeState();
 }
@@ -35,6 +35,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mes recettes'),
+        automaticallyImplyLeading: false,
       ),
       bottomNavigationBar: const BottomNavigation(currentIndex: 0),
       body: ListView.builder(

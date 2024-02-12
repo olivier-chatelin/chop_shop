@@ -1,4 +1,5 @@
-import 'package:chop_shop/design/widgets/chop_badge.dart';
+import 'package:chop_shop/design/chop_colors/chop_colors.dart';
+import 'package:chop_shop/view/commons/widgets/chop_badge.dart';
 import 'package:chop_shop/model/recipe_model.dart';
 import 'package:flutter/material.dart';
 
@@ -38,8 +39,12 @@ class RecipeCard extends StatelessWidget {
                         Container(
                           margin: const EdgeInsets.all(5),
                           child:  IconButton(
-                            // icon: recipe.isPlanned ? Icons.event_busy :  Icons.edit_calendar,
-                            icon: Icon(recipe.isInPlanningBag ? Icons.event_busy :  Icons.edit_calendar, color: Colors.white, size: 40),
+                            icon: Icon(
+                                recipe.isInPlanningBag ? Icons.star :  Icons.star_border,
+                                color: ChopColors.white,
+                                size: 40,
+                                fill: 1,
+                            ),
                             onPressed: () => plan(index),
                           ),
                         ),

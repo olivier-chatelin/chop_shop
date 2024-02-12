@@ -1,3 +1,6 @@
+import 'package:chop_shop/view/grocery/widgets/grocery_view.dart';
+import 'package:chop_shop/view/planner/widgets/planner_view.dart';
+import 'package:chop_shop/view/recipes/recipes_view.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatelessWidget {
@@ -6,9 +9,9 @@ class BottomNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const indexCorrespondences = [
-      '/',
-      '/planner',
-      '/grocery',
+      Home.routeName,
+      Planner.routeName,
+      Grocery.routeName,
     ];
 
     return  BottomNavigationBar(
