@@ -24,7 +24,7 @@ class RecipeCard extends StatelessWidget {
                   fit: BoxFit.cover,
                   child: InkWell(
                     onTap: () {
-                    Navigator.pushNamed(context, '/recipe_detail', arguments: recipe);
+                    Navigator.pushNamed(context, '/recipe_detail', arguments: recipe.id);
                   },
                 ),
               ),

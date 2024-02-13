@@ -15,4 +15,13 @@ class RecipeProvider extends ChangeNotifier {
     notifyListeners();
 
   }
+
+  Recipe getRecipeById (String recipeId) {
+    return _recipes.firstWhere((recipe) => recipe.id == recipeId);
+  }
+
+  List<Recipe> getFilteredRecipes(String text)  {
+    print(text);
+    return recipes.where((Recipe recipe) => recipe.name.toLowerCase().contains(text.toLowerCase())).toList();
+  }
 }

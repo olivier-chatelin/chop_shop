@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
         onGenerateRoute: (settings) {
           switch(settings.name) {
             case '/recipe_detail':
-                return MaterialPageRoute(builder: (context) => RecipeDetail(recipe: settings.arguments as Recipe));
+                return MaterialPageRoute(builder: (context) => RecipeDetail(recipeId: settings.arguments as String));
             case '/planner':
               return MaterialPageRoute(builder: (context) => const Planner());
             case '/grocery':
